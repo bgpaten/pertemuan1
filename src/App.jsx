@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import React, { Component } from "react";
+import Profile from "./Profile";
+
+// function App() {
+//   return <h1>Hello World</h1>;
+// }
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <h1>To-do List</h1>
+      <ol>
+        <li>Mengerjakan Tugas Front END</li>
+        <li>Mempelajari Tutorial React JS</li>-<li>Murajaah 1 Juz</li>
+      </ol>
+      <Profile nama="ucup" alamat="Depok" umur={21} />
+      <img
+        src="https://picsum.photos/id/127/200/300"
+        alt="gambar-pemandangan"
+        width={100}
+        height={100}
+      />
+      <Footer name="Ahyar Pattani" />
     </>
-  )
+  );
 }
 
-export default App
+function Header() {
+  return (
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Login</li>
+      </ul>
+    </nav>
+  );
+}
+
+class Footer extends Component {
+  render() {
+    return (
+      <footer>
+        <h3>Copyright &copy;2025 Developed by {this.props.name}</h3>
+        <span>Make With &#10084; </span>
+      </footer>
+    );
+  }
+}
+
+export default App;
